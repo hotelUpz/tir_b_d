@@ -23,7 +23,7 @@ SIGNAL_FREQUENCY:          float = 2     # частота парсинга си�
 UPDATE_POSITION_FREQUENCY: float = 3     # частота обновления статуса позиций. В секундах
 WRITE_LOGS_INTERVAL:       float = 1     # частота записей логов
 MAX_LOG_LINES:             int   = 1000  # количество строк в лог файлах
-WRITE_TO_LOG:              bool  = True  # записывать ли дебаги в файл
+WRITE_TO_LOG:              bool  = False  # записывать ли дебаги в файл
 TZ:                        str   = "UTC" # временная зона (Europe/Kyiv)
 
 
@@ -51,26 +51,26 @@ TG_BOT_TOKEN:            str = "8204523080:AAGpm2vT3LK6EZzb34DfQOfUTXn9bF2MClk" 
 CHAT_ID_1:               str = "-1003339944736" # tir parser id
 
 PROXY_LIST: List = [
-    {
-        "enable": True,                     # флаг активности прокси
-        "proxy_address": '154.222.214.132', # ...
-        "proxy_port": '62890',
-        "proxy_login": '1FDJcwJR',
-        "proxy_password": 'U2yrFg4a'
-    },
-    {
-        "enable": True,
-        "proxy_address": '154.218.20.43',
-        "proxy_port": '64630',
-        "proxy_login":'1FDJcwJR',
-        "proxy_password": 'U2yrFg4a'
-    },
-    {
-        "enable": True,
-        "proxy_address": '45.192.135.214',
-        "proxy_port": '59100',
-        "proxy_login":'nikolassmsttt0Icgm',
-        "proxy_password": 'agrYpvDz7D'
-    },
+    # {
+    #     "enable": True,                     # флаг активности прокси
+    #     "proxy_address": '154.222.214.132', # ...
+    #     "proxy_port": '62890',
+    #     "proxy_login": '1FDJcwJR',
+    #     "proxy_password": 'U2yrFg4a'
+    # },
+    # {
+    #     "enable": True,
+    #     "proxy_address": '154.218.20.43',
+    #     "proxy_port": '64630',
+    #     "proxy_login":'1FDJcwJR',
+    #     "proxy_password": 'U2yrFg4a'
+    # },
+    # {
+    #     "enable": True,
+    #     "proxy_address": '45.192.135.214',
+    #     "proxy_port": '59100',
+    #     "proxy_login":'nikolassmsttt0Icgm',
+    #     "proxy_password": 'agrYpvDz7D'
+    # },
     None  # локальный ip адрес
 ]
