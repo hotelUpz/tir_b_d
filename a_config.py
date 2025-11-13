@@ -72,5 +72,13 @@ PROXY_LIST: List = [
     #     "proxy_login":'nikolassmsttt0Icgm',
     #     "proxy_password": 'agrYpvDz7D'
     # },
+    {
+        "enable": True,
+        "proxy_address": '154.218.20.43',
+        "proxy_port": '64630',
+        "proxy_login":'1FDJcwJR',
+        "proxy_password": 'U2yrFg4a'
+    },
     None  # локальный ip адрес
 ]
+# curl -x 'http://154.218.20.43:64630' --proxy-user '1FDJcwJR:U2yrFg4a' https://ipinfo.io/json
