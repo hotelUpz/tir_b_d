@@ -42,13 +42,13 @@ TREND_LINE = {
 }
 
 
-# CREDO
-BINANCE_API_PUBLIC_KEY:  str = "Vz2ImnNehZn8fCpsnUn7cUcaBCZ5TuS5RW4CqCUZH2pxcv9KUzCvXOgxJygXw1yc"  # публичный ключ Бинанс
-BINANCE_API_PRIVATE_KEY: str = "h0uGoxCeDF9U2mk0NJvWvKld0rTsoV0pWFyCgqoH78NFRIicAXYf6KHkh6GCIitB"  # приватный ключ Бинанс
-# TG_BOT_TOKEN:            str = "8287838939:AAHNUiNy4reI7-9D1N0PXHBdVX9EJ4Xx04A" # tir parser
-TG_BOT_TOKEN:            str = "8204523080:AAGpm2vT3LK6EZzb34DfQOfUTXn9bF2MClk"   # test tir bot
-# CHAT_ID_1:               str = "-1003036628247" # tir parser id
-CHAT_ID_1:               str = "-1003339944736" # tir parser id
+import os
+
+BINANCE_API_PUBLIC_KEY  = os.getenv("BINANCE_API_PUBLIC_KEY")
+BINANCE_API_PRIVATE_KEY = os.getenv("BINANCE_API_PRIVATE_KEY")
+TG_BOT_TOKEN            = os.getenv("TG_BOT_TOKEN")
+CHAT_ID_1               = os.getenv("CHAT_ID_1")
+
 
 PROXY_LIST: List = [
     # {
