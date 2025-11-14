@@ -5,16 +5,17 @@ from typing import *
 # CORE
 USER_NAME:      str   = "Nik"     # имя клиента
 STRATEGY_NAME:  str   = "Tir"     # лейба стратегии
-SIZE_FACTOR:    float = 99        # % от максимумально допустимого номинала позиции
+SIZE_FACTOR:    float = 98        # % от максимумально допустимого номинала позиции
 FORCE_MARGIN:   float = 1         # $ задаем свою мпржу | None - откл
-MARGIN_LIMIT:   float = 2         # $ максимально допустимая маржа на сделку
-MARGIN_MODE:    int   = 2         # 1 -- ISOLATED, 2 -- CROSSED
-MARGIN_BUFER:   float = 0.0       # $ запас маржи, чтобы хватило на сделку
+MARGIN_LIMIT:   float = 10        # $ максимально допустимая маржа на сделку
+NOMINAL_MIN:    float = 50        # $ минимальный номинал на сделку
+MARGIN_MODE:    int   = 1         # 1 -- ISOLATED, 2 -- CROSSED
+MARGIN_BUFER:   float = 0.5       # $ запас маржи, чтобы хватило на сделку
 FORCE_LEVERAGE: int   = None      # форсированное плечо. Если не None то берем максимальное из доступного
 TP:             float = 1         # take profit %
 TP_TYPE:        int   = 1         # 1 -- limit type, 2 -- market type
 BLACK_SET:      set   = {"BRUSDT", "ARIAUSDT", "REIUSDT", "SOPHUSDT"}     # черный список монет. Формат монеты: "BTCUSDT" и т.д.
-POSITION_LIMIT: int   = 1         # ограничитель одновременно открытых позиций | None - без ограничения
+POSITION_LIMIT: int   = 2         # ограничитель одновременно открытых позиций | None - без ограничения
 
 
 # SYSTEM

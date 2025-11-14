@@ -237,9 +237,21 @@ class Core:
             plane_size = min(allowed_by_notional, allowed_by_margin)
 
         # === баланс ===
-        required_usdt = plane_size / leverage + MARGIN_BUFER
+        nominal_base = NOMINAL_MIN or 0.0
+        plane_size = max(plane_size, nominal_base)
+        
+        # 1) считаем сколько нужно для сделки без буфера!
+        required_usdt = plane_size / leverage
+
+        # 2) узнаём баланс
         available_usdt = await self.binance_private.get_avi_balance(session=session)
-        margin_size = min(available_usdt, required_usdt)
+
+        # 3) вычитаем буфер, чтобы не трогать крайний доллар
+        effective_usdt = max(0, available_usdt - MARGIN_BUFER)
+
+        # 4) маржа, которая реально пойдёт в qty
+        margin_size = min(effective_usdt, required_usdt)
+
 
         async with self.pos_vars_lock:
             self.position_vars.setdefault(symbol, {"in_position": False, "tp_order_id": None})
