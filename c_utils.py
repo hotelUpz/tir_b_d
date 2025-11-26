@@ -19,20 +19,36 @@ getcontext().prec = 28  # точность Decimal
 
 PRECISION = 28
 
-def get_proxy_list(cfg_list: List) -> Optional[str]:
-    """Возвращает URL первого активного прокси из cfg_list."""
-    proxy_set = set()
+
+def get_proxy_list(cfg_list: List) -> List[Optional[str]]:
+    """
+    Собирает уникальные прокси в порядке появления.
+    Повторяющиеся конфиги удаляются.
+    Возвращает список proxy_url или None.
+    """
+    seen = set()
+    result: List[Optional[str]] = []
+
     for cfg in cfg_list:
         if cfg and cfg.get("enable"):
-            login = cfg.get("proxy_login")
-            password = cfg.get("proxy_password")
-            host = cfg.get("proxy_address")
-            port = cfg.get("proxy_port")
-            proxy_set.add(f"http://{login}:{password}@{host}:{port}")
-        else:
-            proxy_set.add(None)
+            url = (
+                f"http://{cfg['proxy_login']}:"
+                f"{cfg['proxy_password']}@"
+                f"{cfg['proxy_address']}:"
+                f"{cfg['proxy_port']}"
+            )
 
-    return list(proxy_set)
+            if url not in seen:
+                seen.add(url)
+                result.append(url)
+        else:
+            # добавляем None только один раз
+            if None not in seen:
+                seen.add(None)
+                result.append(None)
+
+    return result
+
 
 def chunk_list(iterable, n):
     # Для детерминизма: если пришёл set — отсортируем

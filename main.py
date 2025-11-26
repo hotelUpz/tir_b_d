@@ -400,7 +400,7 @@ class Core:
     async def _run(self):
         self.info_handler.debug_info_notes("[INFO] ✨ Бот начал работу.")
 
-        ok, _ = await self.public_connector.validate_session()
+        ok, _, _ = await self.public_connector.validate_session()
         if not ok:
             raise RuntimeError("Failed to initialize session for 'public'")
 

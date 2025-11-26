@@ -36,13 +36,17 @@ class BinancePublicApi:
                     self.info_handler.debug_error_notes(f"Failed to fetch exchange info: {response.status}")
                     return
                 data = await response.json()
-                self.instruments = {
+                instruments = {
                     item["symbol"]: item
                     for item in data.get("symbols", [])
                     if item.get("contractType") == "PERPETUAL"
                     and item.get("status") == "TRADING"
                     and item.get("quoteAsset") == "USDT"
                 }
+                if not instruments: 
+                    self.info_handler.debug_error_notes("No perpetual USDT symbols found in exchange info")
+                    return  
+                self.instruments = instruments
                 self.filtered_symbols = set(self.instruments.keys())
         except Exception as ex:
             self.info_handler.debug_error_notes(f"{ex} in {inspect.currentframe().f_code.co_name}")
