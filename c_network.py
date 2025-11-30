@@ -139,10 +139,10 @@ class NetworkManager:
                 self.info_handler.debug_error_notes(
                     f"{self.user_label}: сессия была пересоздана, status={status}"
                 )
-            else:
-                self.info_handler.debug_error_notes(
-                    f"{self.user_label}: ping OK, status={status}"
-                )
+            # else:
+            #     self.info_handler.debug_error_notes(
+            #         f"{self.user_label}: ping OK, status={status}"
+            #     )
             await asyncio.sleep(SESSION_CHECK_INTERVAL)
 
     async def start_ping_loop(self):

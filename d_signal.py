@@ -12,7 +12,7 @@ from a_config import DIFF_PCT, SIGNAL_TTL, TREND_LINE, BLACK_SET
 class FairSignalDetector:
     """
     Отслеживает расхождение справедливой и горячей цены с подтверждением по времени удержания сигнала.
-    fair_price > last_price и разница >= DIFF_PCT.
+    fair_price > last_price и разница >= DIFF_PCT .
     """
 
     def __init__(self):
